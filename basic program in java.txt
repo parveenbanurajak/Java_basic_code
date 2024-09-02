@@ -1,0 +1,683 @@
+// 1. Hello World
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+
+// 2. Add Two Numbers
+import java.util.Scanner;
+
+public class AddTwoNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        int num1 = scanner.nextInt();
+
+        System.out.print("Enter second number: ");
+        int num2 = scanner.nextInt();
+
+        int sum = num1 + num2;
+        System.out.println("The sum is: " + sum);
+    }
+}
+
+// 3. Simple Calculator
+import java.util.Scanner;
+
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter second number: ");
+        double num2 = scanner.nextDouble();
+
+        System.out.print("Enter an operator (+, -, *, /): ");
+        char operator = scanner.next().charAt(0);
+
+        double result;
+
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                result = num1 / num2;
+                break;
+            default:
+                System.out.println("Invalid operator!");
+                return;
+        }
+
+        System.out.println("The result is: " + result);
+    }
+}
+
+// 4. Check Even or Odd
+import java.util.Scanner;
+
+public class EvenOdd {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+
+        if (num % 2 == 0) {
+            System.out.println(num + " is even.");
+        } else {
+            System.out.println(num + " is odd.");
+        }
+    }
+}
+
+// 5. Factorial of a Number
+import java.util.Scanner;
+
+public class Factorial {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+        int factorial = 1;
+
+        for (int i = 1; i <= num; i++) {
+            factorial *= i;
+        }
+
+        System.out.println("Factorial of " + num + " is " + factorial);
+    }
+}
+
+// 6. Fibonacci Series
+import java.util.Scanner;
+
+public class Fibonacci {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of terms: ");
+        int n = scanner.nextInt();
+
+        int t1 = 0, t2 = 1;
+
+        System.out.print("First " + n + " terms: ");
+
+        for (int i = 1; i <= n; ++i) {
+            System.out.print(t1 + " ");
+
+            int sum = t1 + t2;
+            t1 = t2;
+            t2 = sum;
+        }
+    }
+}
+
+// 7. Check Prime Number
+import java.util.Scanner;
+
+public class PrimeCheck {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+
+        boolean isPrime = true;
+
+        if (num <= 1) {
+            isPrime = false;
+        } else {
+            for (int i = 2; i <= num / 2; i++) {
+                if (num % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+
+        if (isPrime) {
+            System.out.println(num + " is a prime number.");
+        } else {
+            System.out.println(num + " is not a prime number.");
+        }
+    }
+}
+
+// 8. Prime Numbers in a Range
+import java.util.Scanner;
+
+public class PrimeInRange {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter lower bound: ");
+        int lower = scanner.nextInt();
+
+        System.out.print("Enter upper bound: ");
+        int upper = scanner.nextInt();
+
+        System.out.println("Prime numbers between " + lower + " and " + upper + ":");
+
+        for (int i = lower; i <= upper; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i <= num / 2; i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
+// 9. Find Largest of Three Numbers
+import java.util.Scanner;
+
+public class LargestOfThree {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        int num1 = scanner.nextInt();
+
+        System.out.print("Enter second number: ");
+        int num2 = scanner.nextInt();
+
+        System.out.print("Enter third number: ");
+        int num3 = scanner.nextInt();
+
+        if (num1 >= num2 && num1 >= num3) {
+            System.out.println(num1 + " is the largest.");
+        } else if (num2 >= num1 && num2 >= num3) {
+            System.out.println(num2 + " is the largest.");
+        } else {
+            System.out.println(num3 + " is the largest.");
+        }
+    }
+}
+
+// 10. Reverse a Number
+import java.util.Scanner;
+
+public class ReverseNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+
+        int reversed = 0;
+
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+
+        System.out.println("Reversed number: " + reversed);
+    }
+}
+
+// 11. Palindrome Number
+import java.util.Scanner;
+
+public class PalindromeNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+
+        int originalNum = num;
+        int reversed = 0;
+
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+
+        if (originalNum == reversed) {
+            System.out.println(originalNum + " is a palindrome.");
+        } else {
+            System.out.println(originalNum + " is not a palindrome.");
+        }
+    }
+}
+
+// 12. Sum of Digits
+import java.util.Scanner;
+
+public class SumOfDigits {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+
+        int sum = 0;
+
+        while (num != 0) {
+            int digit = num % 10;
+            sum += digit;
+            num /= 10;
+        }
+
+        System.out.println("Sum of digits: " + sum);
+    }
+}
+
+// 13. Armstrong Number
+import java.util.Scanner;
+
+public class ArmstrongNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+
+        int originalNum = num;
+        int result = 0;
+
+        while (num != 0) {
+            int digit = num % 10;
+            result += Math.pow(digit, 3);
+            num /= 10;
+        }
+
+        if (result == originalNum) {
+            System.out.println(originalNum + " is an Armstrong number.");
+        } else {
+            System.out.println(originalNum + " is not an Armstrong number.");
+        }
+    }
+}
+
+// 14. Power of a Number
+import java.util.Scanner;
+
+public class PowerOfNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter base number: ");
+        int base = scanner.nextInt();
+
+        System.out.print("Enter exponent: ");
+        int exponent = scanner.nextInt();
+
+        long result = 1;
+
+        for (int i = 1; i <= exponent; i++) {
+            result *= base;
+        }
+
+        System.out.println(base + " raised to the power of " + exponent + " is: " + result);
+    }
+}
+
+// 15. Sum of First N Natural Numbers
+import java.util.Scanner;
+
+public class SumOfNaturalNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a positive integer: ");
+        int n = scanner.nextInt();
+
+        int sum = (n * (n + 1)) / 2;
+
+        System.out.println("Sum of first " + n + " natural numbers is: " + sum);
+    }
+}
+// 16. Sum of N Odd Numbers
+import java.util.Scanner;
+
+public class SumOfOddNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the value of N: ");
+        int n = scanner.nextInt();
+
+        int sum = 0;
+        for (int i = 1; i <= 2 * n; i += 2) {
+            sum += i;
+        }
+
+        System.out.println("Sum of first " + n + " odd numbers is: " + sum);
+    }
+}
+
+// 17. Sum of N Even Numbers
+import java.util.Scanner;
+
+public class SumOfEvenNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the value of N: ");
+        int n = scanner.nextInt();
+
+        int sum = 0;
+        for (int i = 2; i <= 2 * n; i += 2) {
+            sum += i;
+        }
+
+        System.out.println("Sum of first " + n + " even numbers is: " + sum);
+    }
+}
+
+// 18. Count Digits in a Number
+import java.util.Scanner;
+
+public class CountDigits {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+
+        int count = 0;
+        while (num != 0) {
+            num /= 10;
+            count++;
+        }
+
+        System.out.println("Number of digits: " + count);
+    }
+}
+
+// 19. Find GCD of Two Numbers
+import java.util.Scanner;
+
+public class GCD {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        int num1 = scanner.nextInt();
+
+        System.out.print("Enter second number: ");
+        int num2 = scanner.nextInt();
+
+        int gcd = 1;
+        for (int i = 1; i <= num1 && i <= num2; i++) {
+            if (num1 % i == 0 && num2 % i == 0) {
+                gcd = i;
+            }
+        }
+
+        System.out.println("GCD is: " + gcd);
+    }
+}
+
+// 20. Find LCM of Two Numbers
+import java.util.Scanner;
+
+public class LCM {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        int num1 = scanner.nextInt();
+
+        System.out.print("Enter second number: ");
+        int num2 = scanner.nextInt();
+
+        int max = Math.max(num1, num2);
+        int lcm = max;
+
+        while (true) {
+            if (lcm % num1 == 0 && lcm % num2 == 0) {
+                break;
+            }
+            lcm++;
+        }
+
+        System.out.println("LCM is: " + lcm);
+    }
+}
+
+// 21. Find ASCII Value of a Character
+import java.util.Scanner;
+
+public class AsciiValue {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a character: ");
+        char ch = scanner.next().charAt(0);
+
+        int asciiValue = ch;
+        System.out.println("ASCII value of " + ch + " is: " + asciiValue);
+    }
+}
+
+// 22. Generate Multiplication Table
+import java.util.Scanner;
+
+public class MultiplicationTable {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(num + " x " + i + " = " + (num * i));
+        }
+    }
+}
+
+// 23. Display a Number in Reverse
+import java.util.Scanner;
+
+public class DisplayReverse {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+
+        System.out.print("Reversed number: ");
+        while (num != 0) {
+            int digit = num % 10;
+            System.out.print(digit);
+            num /= 10;
+        }
+    }
+}
+
+// 24. Check if a String is a Palindrome
+import java.util.Scanner;
+
+public class StringPalindrome {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String str = scanner.nextLine();
+
+        String reversedStr = new StringBuilder(str).reverse().toString();
+
+        if (str.equals(reversedStr)) {
+            System.out.println(str + " is a palindrome.");
+        } else {
+            System.out.println(str + " is not a palindrome.");
+        }
+    }
+}
+
+// 25. Count Vowels in a String
+import java.util.Scanner;
+
+public class VowelCount {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String str = scanner.nextLine();
+
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+                ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+                count++;
+            }
+        }
+
+        System.out.println("Number of vowels: " + count);
+    }
+}
+
+// 26. Find the Largest Element in an Array
+import java.util.Scanner;
+
+public class LargestInArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+
+        int[] arr = new int[n];
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+
+        System.out.println("Largest element is: " + max);
+    }
+}
+
+// 27. Calculate the Sum of Elements in an Array
+import java.util.Scanner;
+
+public class SumOfArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+
+        int[] arr = new int[n];
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        int sum = 0;
+        for (int i : arr) {
+            sum += i;
+        }
+
+        System.out.println("Sum of elements: " + sum);
+    }
+}
+
+// 28. Find the Second Largest Element in an Array
+import java.util.Scanner;
+
+public class SecondLargestInArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+
+        int[] arr = new int[n];
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+
+        for (int i = 0; i < n; i++) {
+            if (arr[i] > largest) {
+                secondLargest = largest;
+                largest = arr[i];
+            } else if (arr[i] > secondLargest && arr[i] != largest) {
+                secondLargest = arr[i];
+            }
+        }
+
+        System.out.println("Second largest element is: " + secondLargest);
+    }
+}
+
+// 29. Check if a Number is Palindrome
+import java.util.Scanner;
+
+public class NumberPalindrome {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+
+        int originalNum = num;
+        int reversed = 0;
+
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+
+        if (originalNum == reversed) {
+            System.out.println(originalNum + " is a palindrome.");
+        } else {
+            System.out.println(originalNum + " is not a palindrome.");
+        }
+    }
+}
+
+// 30. Remove Duplicates from a String
+import java.util.Scanner;
+
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String str = scanner.nextLine();
+        StringBuffer sbf = new StringBuffer(str);
+        String rev=sbf.reverse();
+        if(rev==str)
+        System.out.println("yes");
+
